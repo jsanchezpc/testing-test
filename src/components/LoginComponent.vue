@@ -2,7 +2,7 @@
     <div>
         <div :class="{'not': this.isHidden === false, 'visible': this.isHidden}">
             <h2>LOGIN CORRECTO</h2>
-            <button @click="reload">GENIAL</button>
+            <button logout="logout-button" @click="reload">GENIAL</button>
             <hr>
         </div>
 
@@ -39,7 +39,7 @@ export default {
                 password: this.password,
             };
             console.log(formData)
-            axios.post('http://localhost:8082/login', formData)
+            axios.post('http://localhost:8081/login', formData)
                 .then(response => {
                     console.log(response.data.message);
                     if(response.data.message === 'Inicio de sesión exitoso') {
